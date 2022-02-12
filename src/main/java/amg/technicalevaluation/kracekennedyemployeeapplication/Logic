@@ -1,0 +1,16 @@
+Logical flow:
+
+   Weather and notification aspect:
+        1. Retrieve Json Object from api call
+        2. Isolate the weather for each day and pass that to an object (This data should be autonomous but should also not be
+            endless  loop so something has to keep track of what day an alert was sent for, if one was sent to ensure that
+            multiple notifications are sent for a specific day due to the transactions being autonomous)
+
+        3. weather has to be stored for the next 5 days based on locations (maybe to a file, or to the database)
+            (using java.time to retrieve dates from present going forward)
+
+        4. if date after current date's weather is going to be rainy notification should be sent
+
+
+
+
