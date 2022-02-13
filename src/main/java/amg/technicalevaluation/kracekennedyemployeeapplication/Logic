@@ -6,6 +6,10 @@ Logical flow:
             endless  loop so something has to keep track of what day an alert was sent for, if one was sent to ensure that
             multiple notifications are sent for a specific day due to the transactions being autonomous)
 
+            NB. For the weather api days were in arrays and within each element in the array was an array of weather. That was tricky,
+            had to store the days array, then, access each weather in the array and stored that in an array, then, I was able to access
+            element in the weather array which stated if it was raining or not, that was welcomed conquest.
+
         3. weather has to be stored for the next 5 days based on locations (maybe to a file, or to the database)
             (using java.time to retrieve dates from present going forward)
 
