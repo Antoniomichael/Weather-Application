@@ -5,6 +5,8 @@ module amg.technicalevaluation.kracekennedyemployeeapplication {
     requires org.controlsfx.controls;
     requires validatorfx;
     requires org.kordamp.ikonli.javafx;
+    requires json.simple;
+//    requires com.googlecode.json-simple;
 
     opens amg.technicalevaluation.kracekennedyemployeeapplication to javafx.fxml;
     exports amg.technicalevaluation.kracekennedyemployeeapplication;
