@@ -16,5 +16,31 @@ Logical flow:
         4. if date after current date's weather is going to be rainy notification should be sent
 
 
+    Database Logic:
+        1. Notifications table keeps track of when a notification was sent and the date it was sent for.
+            This ensures that when emails are automated they won't be sent multiple times. this keeps track
+            of whether notification was sent already.
+
+        2. Employee table keeps track of employees and location, email address will be taken from this table to be notified
+        3. Role table keeps track of the roles and uses it's role id to reduce typos during role add in employee table
+
+
+    Email API:
+        1. Use Email API to send emails
+
+    UI Design:
+            1. Create design using JAVAFX and incorporate with above logics
+
+    Automation:
+        1. Automate process
+
+
+    Role:
+        1 - IT
+        2 - Manufacturing Workers
+
+    Branch Location:
+        1 - Montego Bay
+        2 - Kingston
 
 

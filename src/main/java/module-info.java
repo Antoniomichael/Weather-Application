@@ -6,8 +6,14 @@ module amg.technicalevaluation.kracekennedyemployeeapplication {
     requires validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires json.simple;
-//    requires com.googlecode.json-simple;
+    requires java.sql;
+    requires com.microsoft.sqlserver.jdbc;
+    requires java.mail;
 
     opens amg.technicalevaluation.kracekennedyemployeeapplication to javafx.fxml;
     exports amg.technicalevaluation.kracekennedyemployeeapplication;
+    exports amg.technicalevaluation.kracekennedyemployeeapplication.DAO;
+    opens amg.technicalevaluation.kracekennedyemployeeapplication.DAO to javafx.fxml;
+    exports amg.technicalevaluation.kracekennedyemployeeapplication.model;
+    opens amg.technicalevaluation.kracekennedyemployeeapplication.model to javafx.fxml;
 }

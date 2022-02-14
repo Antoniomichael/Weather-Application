@@ -1,29 +1,21 @@
-package amg.technicalevaluation.kracekennedyemployeeapplication;
+package amg.technicalevaluation.kracekennedyemployeeapplication.model;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
 
+import amg.technicalevaluation.kracekennedyemployeeapplication.model.DaysModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public final class WeatherAPI {
-    final URL Kingstonurl = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=17.997&lon=-76.7936&exclude=current,minutely,hourly&appid=add89d8722d269d9d4d96f1ce7a66257");
-    final URL MontegoBayurl = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=18.4712&lon=-77.9188&exclude=current,minutely,hourly&appid=add89d8722d269d9d4d96f1ce7a66257");
 
-    public WeatherAPI() throws MalformedURLException {
-
-    }
-
-
-    public void getMontegoBayData(URL url) throws IOException, ParseException {
+    public void checkURL(URL url) throws IOException, ParseException {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
         //this call to set request lets the connection know that this is a get method and so will receive data and not post
@@ -57,8 +49,8 @@ public final class WeatherAPI {
 
         }
         scanner.close();
-        System.out.println(stringBuilder);
-        System.out.println("Finished here");
+//        System.out.println(stringBuilder);
+//        System.out.println("Finished here");
         getJSONObject(stringBuilder);
     }
 
@@ -68,14 +60,7 @@ public final class WeatherAPI {
 
         int results = jsonWeatherArray.size();
         int tempIterator = 0;
-//        while(tempIterator < results){
-////            System.out.println(jsonWeatherArray.get(tempIterator));
-////            System.out.println(jsonWeatherArray.get(tempIterator));
-//
-//            tempIterator= tempIterator +1;
-//        }
 
-//        JSONObject daysinfo = (JSONObject) jsonWeatherArray.get(0);
         try {
             if (jsonWeatherArray.get("daily") != null) {
                 List<JSONObject> daysInformationList = new ArrayList<>();
@@ -85,11 +70,13 @@ public final class WeatherAPI {
 
                 List<DaysModel> daysInfo = new ArrayList<>();
                 JSONObject weatherforthisday = new JSONObject();
+
+                LocalDate localDate = LocalDate.now();
+
                 while(tempIterator < results){
-                    //Gets each day during loop
                     daysInformationList.add((JSONObject) jsonArrayOfDays.get(tempIterator));
+
                     try{
-                    //Takes the weather from that day
 
                     weatherInfo = (JSONArray) daysInformationList.get(tempIterator).get("weather");
 
@@ -99,11 +86,10 @@ public final class WeatherAPI {
                     }
                     if(weatherforthisday.get("main") == "Rain"){
                         System.out.println(weatherforthisday.get("main"));
-                        daysInfo.add(new DaysModel(tempIterator,false));
-                    }else{
-
+                        daysInfo.add(new DaysModel(localDate.plusDays(tempIterator), (String) weatherforthisday.get("main")));
+                    }else if(weatherforthisday.get("main") != "Rain"){
                         System.out.println(weatherforthisday.get("main"));
-                        daysInfo.add(new DaysModel(tempIterator,true));
+                        daysInfo.add(new DaysModel(localDate.plusDays(tempIterator), (String) weatherforthisday.get("main")));
                     }
 
 
@@ -111,15 +97,6 @@ public final class WeatherAPI {
                 }
 
                 System.out.println(daysInfo);
-//                System.out.println(daysInformationList);
-
-
-
-//
-//                JSONObject jsonObjecttest=  (JSONObject) jsonArrayOfDays.get(0);
-//                JSONArray weatherinfo =  (JSONArray) jsonObjecttest.get("weather");
-//                System.out.println(weatherinfo.get(0));
-
 
             } else {
                 System.out.println("None Existent");
@@ -127,10 +104,5 @@ public final class WeatherAPI {
         }catch(NullPointerException npe){
             System.out.println("Field null");
         }
-
-
-
     }
-
-
 }
