@@ -20,6 +20,10 @@ public class DaysModel {
         return day;
     }
 
+    public String getWeather() {
+        return weather;
+    }
+
     public boolean isSunny() {
         if(Objects.equals(weather, "Rain"))
         {

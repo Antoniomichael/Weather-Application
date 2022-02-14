@@ -106,29 +106,40 @@ public class mainController implements Initializable {
             txtDay3Kingston.setText(KingstonDaysInfo.get(2).getDay().toString());
             txtDay4Kingston.setText(KingstonDaysInfo.get(3).getDay().toString());
             txtDay5Kingston.setText(KingstonDaysInfo.get(4).getDay().toString());
+
+
+
+            txtDescriptionCurrentDayKingston.setText(KingstonDaysInfo.get(0).getWeather());
+            txtDescriptionDay2Kingston.setText(KingstonDaysInfo.get(1).getWeather());
+            txtDescriptionDay3Kingston.setText(KingstonDaysInfo.get(2).getWeather());
+            txtDescriptionDay4Kingston.setText(KingstonDaysInfo.get(3).getWeather());
+            txtDescriptionDay5Kingston.setText(KingstonDaysInfo.get(4).getWeather());
+
+
+
+
         }
 
         if(!MontegoBayDaysInfo.isEmpty()){
-            txtCurrentDayMoBay.setText(MontegoBayDaysInfo.get(0).toString());
-            txtDay2Mobay.setText(MontegoBayDaysInfo.get(1).toString());
-            txtDay3Mobay.setText(MontegoBayDaysInfo.get(2).toString());
-            txtDay4Mobay.setText(MontegoBayDaysInfo.get(3).toString());
-            txtDay5Mobay.setText(MontegoBayDaysInfo.get(4).toString());
+            txtCurrentDayMoBay.setText(MontegoBayDaysInfo.get(0).getDay().toString());
+            txtDay2Mobay.setText(MontegoBayDaysInfo.get(1).getDay().toString());
+            txtDay3Mobay.setText(MontegoBayDaysInfo.get(2).getDay().toString());
+            txtDay4Mobay.setText(MontegoBayDaysInfo.get(3).getDay().toString());
+            txtDay5Mobay.setText(MontegoBayDaysInfo.get(4).getDay().toString());
+
+
+            txtDescriptionCurrentDayMobay.setText(MontegoBayDaysInfo.get(0).getWeather());
+            txtDescriptionDay2Mobay.setText(MontegoBayDaysInfo.get(1).getWeather());
+            txtDescriptionDay3Mobay.setText(MontegoBayDaysInfo.get(2).getWeather());
+            txtDescriptionDay4Mobay.setText(MontegoBayDaysInfo.get(3).getWeather());
+            txtDescriptionDay5Mobay.setText(MontegoBayDaysInfo.get(4).getWeather());
+
         }
 
 
-//        txtDescriptionCurrentDayMobay;
-//        txtDescriptionDay2Mobay;
-//        txtDescriptionDay3Mobay;
-//        txtDescriptionDay4Mobay;
-//        txtDescriptionDay5Mobay;
+
 //
-//        //Kingston side description info
-//        txtDescriptionCurrentDayKingston;
-//        txtDescriptionDay2Kingston;
-//        txtDescriptionDay3Kingston;
-//        txtDescriptionDay4Kingston;
-//        txtDescriptionDay5Kingston;
+
 //
 //        //Fonts for Mobay
 //        fontAwesomeICONCurrentDayMobay;
