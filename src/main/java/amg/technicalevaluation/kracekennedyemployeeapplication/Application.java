@@ -26,25 +26,25 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) throws IOException, ParseException, SQLException {
-        final URL KingstonURL = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=17.997&lon=-76.7936&exclude=current,minutely,hourly&appid=add89d8722d269d9d4d96f1ce7a66257");
-        final URL MontegoBayURL = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=18.4712&lon=-77.9188&exclude=current,minutely,hourly&appid=add89d8722d269d9d4d96f1ce7a66257");
-
-        String ITEmailsList;
-        String WorkersEmailsList;
-        WeatherAPI KingstonWeather = new WeatherAPI();
-        WeatherAPI MontegoBayWeather = new WeatherAPI();
-
-
-        KingstonWeather.checkURL(KingstonURL);
-        MontegoBayWeather.checkURL(MontegoBayURL);
-
-        WorkersEmailsList = DBEmailAccessor.getManufacturingWorkersEmails();
-        ITEmailsList = DBEmailAccessor.getITEmails();
-
-        System.out.println(ITEmailsList);
-        System.out.println(WorkersEmailsList);
-        Email.EmailGeneralWorkers(WorkersEmailsList);
-        Email.EmailITWorkers(ITEmailsList);
+//        final URL KingstonURL = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=17.997&lon=-76.7936&exclude=current,minutely,hourly&appid=add89d8722d269d9d4d96f1ce7a66257");
+//        final URL MontegoBayURL = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=18.4712&lon=-77.9188&exclude=current,minutely,hourly&appid=add89d8722d269d9d4d96f1ce7a66257");
+//
+//        String ITEmailsList;
+//        String WorkersEmailsList;
+//        WeatherAPI KingstonWeather = new WeatherAPI();
+//        WeatherAPI MontegoBayWeather = new WeatherAPI();
+//
+//
+//        KingstonWeather.checkURL(KingstonURL);
+//        MontegoBayWeather.checkURL(MontegoBayURL);
+//
+//        WorkersEmailsList = DBEmailAccessor.getManufacturingWorkersEmails();
+//        ITEmailsList = DBEmailAccessor.getITEmails();
+//
+//        System.out.println(ITEmailsList);
+//        System.out.println(WorkersEmailsList);
+//        Email.EmailGeneralWorkers(WorkersEmailsList);
+//        Email.EmailITWorkers(ITEmailsList);
 
 //        launch();
 

@@ -14,8 +14,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public final class WeatherAPI {
-
-    public void checkURL(URL url) throws IOException, ParseException {
+    List<DaysModel> daysInfo = new ArrayList<>();
+    public List<DaysModel> checkURL(URL url) throws IOException, ParseException {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
         //this call to set request lets the connection know that this is a get method and so will receive data and not post
@@ -25,8 +25,8 @@ public final class WeatherAPI {
         //Checking connection response code: 429 means free subscription requests has been exceeded
         int responseCode = connection.getResponseCode();
         checkResponsecode(responseCode);
-        setWeatherInfo(url);
-//        getJSONObject();
+
+        return getJSONObject(setWeatherInfo(url));
 
     }
 
@@ -39,7 +39,7 @@ public final class WeatherAPI {
         return 1;
     }
 
-    public void setWeatherInfo(URL url) throws IOException, ParseException {
+    public StringBuilder setWeatherInfo(URL url) throws IOException, ParseException {
         StringBuilder stringBuilder = new StringBuilder();
         Scanner scanner = new Scanner(url.openStream());
 
@@ -52,9 +52,10 @@ public final class WeatherAPI {
 //        System.out.println(stringBuilder);
 //        System.out.println("Finished here");
         getJSONObject(stringBuilder);
+        return stringBuilder;
     }
 
-    public void getJSONObject(StringBuilder weatherAsString) throws ParseException {
+    public List<DaysModel> getJSONObject(StringBuilder weatherAsString) throws ParseException {
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonWeatherArray = (JSONObject) jsonParser.parse(String.valueOf(weatherAsString));
 
@@ -68,7 +69,7 @@ public final class WeatherAPI {
                 JSONArray jsonArrayOfDays = (JSONArray) jsonWeatherArray.get("daily");
                 JSONArray weatherInfo;
 
-                List<DaysModel> daysInfo = new ArrayList<>();
+
                 JSONObject weatherforthisday = new JSONObject();
 
                 LocalDate localDate = LocalDate.now();
@@ -101,8 +102,10 @@ public final class WeatherAPI {
             } else {
                 System.out.println("None Existent");
             }
+            return daysInfo;
         }catch(NullPointerException npe){
             System.out.println("Field null");
         }
+        return  daysInfo;
     }
 }

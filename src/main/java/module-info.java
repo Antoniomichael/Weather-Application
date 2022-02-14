@@ -9,6 +9,7 @@ module amg.technicalevaluation.kracekennedyemployeeapplication {
     requires java.sql;
     requires com.microsoft.sqlserver.jdbc;
     requires java.mail;
+    requires fontawesomefx;
 
     opens amg.technicalevaluation.kracekennedyemployeeapplication to javafx.fxml;
     exports amg.technicalevaluation.kracekennedyemployeeapplication;

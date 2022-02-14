@@ -1,16 +1,278 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="amg.technicalevaluation.kracekennedyemployeeapplication.mainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="580.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amg.technicalevaluation.kracekennedyemployeeapplication.mainController">
+   <children>
+      <ImageView fitHeight="705.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/couple-and-beach.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-2.0" prefHeight="572.0" prefWidth="542.0">
+         <children>
+            <Label layoutX="144.0" layoutY="41.0" text="Montego Bay Weather" textFill="#fffefe" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <VBox layoutX="9.0" layoutY="70.0" prefHeight="465.0" prefWidth="525.0" AnchorPane.topAnchor="70.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtCurrentDayMoBay" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONCurrentDayMobay" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionCurrentDayMobay" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay2Mobay" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDayMobay2" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay2Mobay" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay3Mobay" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDayMobay3" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay3Mobay" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay4Mobay" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDayMobay4" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay4Mobay" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay5Mobay" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDayMobay5" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay5Mobay" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="540.0" opacity="0.88" prefHeight="572.0" prefWidth="542.0">
+         <children>
+            <Pane prefHeight="572.0" prefWidth="542.0" style="-fx-background-color: rgba(31,29,40,0.4,5);" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label layoutX="144.0" layoutY="35.0" text="Kingston Weather" textFill="#fffefe" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <VBox prefHeight="465.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="70.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtcurrentDayKingston" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONCurrentDayKingston" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionCurrentDayKingston" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay2Kingston" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDay2Kingston" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay2Kingston" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay3Kingston" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDay3Kingston" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay3Kingston" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay4Kingston" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDay4Kingston" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay4Kingston" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                     <children>
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDay5Kingston" prefHeight="102.0" prefWidth="194.0" text="Current Day" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="fontAwesomeICONDay5Kingston" boundsType="VISUAL" fill="#fffdfd" iconName="CLOUD" selectionEnd="0" selectionStart="0" size="5em" wrappingWidth="87.25" HBox.hgrow="ALWAYS" />
+                        <AnchorPane prefHeight="93.0" prefWidth="219.0">
+                           <children>
+                              <Label fx:id="txtDescriptionDay5Kingston" prefHeight="102.0" prefWidth="154.0" text="Description" textFill="#fffefe" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
