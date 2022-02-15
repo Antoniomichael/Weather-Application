@@ -1,17 +1,17 @@
 package amg.technicalevaluation.kracekennedyemployeeapplication.model;
 
-import javax.net.ssl.HttpsURLConnection;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.time.LocalDate;
-import java.util.*;
-
-import amg.technicalevaluation.kracekennedyemployeeapplication.model.DaysModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import javax.net.ssl.HttpsURLConnection;
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public final class WeatherAPI {
     List<DaysModel> daysInfo = new ArrayList<>();
@@ -83,13 +83,13 @@ public final class WeatherAPI {
 
                     weatherforthisday = (JSONObject) weatherInfo.get(0);
                     }catch (IndexOutOfBoundsException i){
-                        System.out.println("index out of bounds");
+//                        System.out.println("index out of bounds");
                     }
                     if(weatherforthisday.get("main") == "Rain"){
-                        System.out.println(weatherforthisday.get("main"));
+//                        System.out.println(weatherforthisday.get("main"));
                         daysInfo.add(new DaysModel(localDate.plusDays(tempIterator), (String) weatherforthisday.get("main")));
                     }else if(weatherforthisday.get("main") != "Rain"){
-                        System.out.println(weatherforthisday.get("main"));
+//                        System.out.println(weatherforthisday.get("main"));
                         daysInfo.add(new DaysModel(localDate.plusDays(tempIterator), (String) weatherforthisday.get("main")));
                     }
 
@@ -97,14 +97,14 @@ public final class WeatherAPI {
                     tempIterator = tempIterator+1;
                 }
 
-                System.out.println(daysInfo);
+//                System.out.println(daysInfo);
 
             } else {
-                System.out.println("None Existent");
+//                System.out.println("None Existent");
             }
             return daysInfo;
         }catch(NullPointerException npe){
-            System.out.println("Field null");
+//            System.out.println("Field null");
         }
         return  daysInfo;
     }

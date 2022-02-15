@@ -20,14 +20,14 @@ public final class ServerConnection {
 
             assert connection != null;
             return connection;
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Driver Issues/ connection string");
             e.printStackTrace();
             return null;
         }
     }
 
-    public static void closeConnection() throws SQLException {
-        connection.close();
-    }
+//    public static void closeConnection() throws SQLException {
+//        connection.close();
+//    }
 }

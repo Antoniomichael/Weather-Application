@@ -19,6 +19,7 @@
       </ImageView>
       <AnchorPane layoutX="-2.0" prefHeight="572.0" prefWidth="542.0">
          <children>
+            <Pane prefHeight="580.0" prefWidth="542.0" style="-fx-background-color: rgba(31,29,40,0.5,5);"/>
             <Label layoutX="144.0" layoutY="41.0" text="Montego Bay Weather" textFill="#fffefe" AnchorPane.topAnchor="15.0">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -147,7 +148,8 @@
       </AnchorPane>
       <AnchorPane layoutX="540.0" opacity="0.88" prefHeight="572.0" prefWidth="542.0">
          <children>
-            <Pane prefHeight="572.0" prefWidth="542.0" style="-fx-background-color: rgba(31,29,40,0.4,5);" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Pane prefHeight="580.0" prefWidth="542.0" style="-fx-background-color: rgba(31,29,40,0.4,5);"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
             <Label layoutX="144.0" layoutY="35.0" text="Kingston Weather" textFill="#fffefe" AnchorPane.topAnchor="15.0">
                <font>
                   <Font name="System Bold" size="24.0" />

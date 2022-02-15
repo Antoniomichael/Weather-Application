@@ -7,8 +7,10 @@ import java.sql.Statement;
 import java.util.Objects;
 
 public final class DBEmailAccessor {
-    private static String ManufacturingWorkersEmails = "";
-    private static String ITEmails = "";
+    private static String ManufacturingWorkersEmailsKingston = "";
+    private static String ManufacturingWorkersEmailsMobay = "";
+    private static String ITEmailsKingston = "";
+    private static String ITEmailsMobay = "";
     static String selectWorkersEmailsKingston = "SELECT dbo.EmployeeTable.email FROM dbo.EmployeeTable WHERE role = 2 and addressLocation = 2";
     static String selectWorkersEmailsMobay = "SELECT dbo.EmployeeTable.email FROM dbo.EmployeeTable WHERE role = 2 and addressLocation = 1";
 
@@ -29,23 +31,27 @@ public final class DBEmailAccessor {
 
                 resultSet = statement.executeQuery(selectWorkersEmailsKingston);
 //
-                if(resultSet.next()){
+                if (resultSet.next()) {
                     do {
 //                        System.out.println(resultSet.getString("email"));
-                        ManufacturingWorkersEmails = ManufacturingWorkersEmails.concat( resultSet.getString("email") + ",");
-                    }while(resultSet.next());
+                        ManufacturingWorkersEmailsKingston = ManufacturingWorkersEmailsKingston.concat(resultSet.getString("email") + ",");
+                    } while (resultSet.next());
 
                 }
-                    System.out.println(ManufacturingWorkersEmails);
+                System.out.println(ManufacturingWorkersEmailsKingston);
 //
                 newcon.close();
-                newcon.close();
-                StringBuffer sb = new StringBuffer(ManufacturingWorkersEmails);
+                if (!ManufacturingWorkersEmailsKingston.isEmpty()) {
+                    StringBuilder sb = new StringBuilder(ManufacturingWorkersEmailsKingston);
 
-                return  String.valueOf(sb.deleteCharAt(sb.length()-1));
+                    return String.valueOf(sb.deleteCharAt(sb.length() - 1));
+                } else {
+                    return null;
+
+                }
 
             }catch(NullPointerException nullPointerException){
-                System.out.println("Null return");
+//                System.out.println("Null return");
             }
             return null;
         }
@@ -60,23 +66,25 @@ public final class DBEmailAccessor {
 
             resultSet = statement.executeQuery(selectWorkersEmailsMobay);
 //
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 do {
 //                        System.out.println(resultSet.getString("email"));
-                    ManufacturingWorkersEmails = ManufacturingWorkersEmails.concat( resultSet.getString("email") + ",");
-                }while(resultSet.next());
+                    ManufacturingWorkersEmailsMobay = ManufacturingWorkersEmailsMobay.concat(resultSet.getString("email") + ",");
+                } while (resultSet.next());
 
             }
-            System.out.println(ManufacturingWorkersEmails);
+            System.out.println(ManufacturingWorkersEmailsMobay);
 //
             newcon.close();
-            newcon.close();
-            StringBuffer sb = new StringBuffer(ManufacturingWorkersEmails);
+            if (!ManufacturingWorkersEmailsMobay.isEmpty()) {
+                StringBuilder sb = new StringBuilder(ManufacturingWorkersEmailsMobay);
 
-            return  String.valueOf(sb.deleteCharAt(sb.length()-1));
-
+                return String.valueOf(sb.deleteCharAt(sb.length() - 1));
+            } else {
+                return null;
+            }
         }catch(NullPointerException nullPointerException){
-            System.out.println("Null return");
+//            System.out.println("Null return");
         }
         return null;
     }
@@ -93,13 +101,13 @@ public final class DBEmailAccessor {
 //
             if (resultSet.next()) {
                 do {
-                    ITEmails = ITEmails.concat(resultSet.getString("email") + ",");
+                    ITEmailsKingston = ITEmailsKingston.concat(resultSet.getString("email") + ",");
                 } while (resultSet.next());
             }
-            System.out.println(ITEmails);
+            System.out.println(ITEmailsKingston);
             newcon.close();
-            if (!ITEmails.isEmpty()) {
-                StringBuilder sb = new StringBuilder(ITEmails);
+            if (!ITEmailsKingston.isEmpty()) {
+                StringBuilder sb = new StringBuilder(ITEmailsKingston);
 
                 try {
                     return String.valueOf(sb.deleteCharAt(sb.length() - 1));
@@ -107,13 +115,11 @@ public final class DBEmailAccessor {
                     System.out.println("String out of bounds");
                     return null;
                 }
-
-            }else{
+            } else {
                 return null;
             }
-
         } catch (NullPointerException nullPointerException) {
-            System.out.println("Null return");
+//            System.out.println("Null return");
             return null;
         }
 
@@ -132,23 +138,21 @@ public final class DBEmailAccessor {
             if (resultSet.next()) {
                 do {
 
-                    ITEmails = ITEmails.concat(resultSet.getString("email") + ",");
+                    ITEmailsMobay = ITEmailsMobay.concat(resultSet.getString("email") + ",");
 
-
-//                System.out.println(resultSet.getString("email"));
-                }while (resultSet.next());
-//                while(resultSet.next()){
-//                    ITEmails.add(resultSet.getString("email"));
-//                    System.out.println(resultSet.getString("email"));
-////                }
+                } while (resultSet.next());
             }
-            System.out.println(ITEmails);
+            System.out.println(ITEmailsMobay);
             newcon.close();
-            StringBuffer sb = new StringBuffer(ITEmails);
+            if (!ITEmailsMobay.isEmpty()) {
+                StringBuilder sb = new StringBuilder(ITEmailsMobay);
+                return String.valueOf(sb.deleteCharAt(sb.length() - 1));
+            } else {
+                return null;
+            }
 
-            return  String.valueOf(sb.deleteCharAt(sb.length()-1));
         }catch(NullPointerException nullPointerException){
-            System.out.println("Null return");
+//            System.out.println("Null return");
             return  null;
         }
 

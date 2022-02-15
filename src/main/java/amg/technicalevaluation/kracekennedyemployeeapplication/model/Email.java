@@ -2,8 +2,9 @@ package amg.technicalevaluation.kracekennedyemployeeapplication.model;
 
 import com.sun.mail.smtp.SMTPTransport;
 
-import javax.mail.*;
-import javax.mail.internet.AddressException;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ import java.util.Properties;
 
 public final class Email {
 
-    private  static LocalDate localDate = LocalDate.now();
+    private static final LocalDate localDate = LocalDate.now();
     private static final String USERNAME = "antonioveteran@hotmail.com";
     private static final String PASSWORD = "Veronica";
     private static final String SMTP_SERVER = "smtp-mail.outlook.com";
@@ -21,13 +22,14 @@ public final class Email {
 
     private static final String EMAIL_SUBJECT_GENERALWORKERS = "Work Hours";
     private static final String EMAIL_SUBJECT_ITWORKERS = "Work Hours";
-    private static  String ITMessageText = "Good Day, \n" +
-            "Please note that for tomorrow's shift " + localDate.plusDays(1) + ", you are not expected to be on the road. \n Respectfully, \n\n Management";;
+    private static final String ITMessageText = "Good Day, \n" +
+            "Please note that for tomorrow's shift " + localDate.plusDays(1) + ", you are not expected to be on the road. \n Respectfully, \n\n Management";
 
-    private static  String GeneralWorkersText =  "Good Day, \n" +
+    private static final String GeneralWorkersText = "Good Day, \n" +
             "Please note that for tomorrow's shift " + localDate.plusDays(1) + ",  you are not required to work the full 8 hour shift, " +
             "but instead you will be required to only work a 4 hour shift. \n Respectfully, \n\n Management";
-    public Email(){
+
+    public Email() {
 //
 
 
@@ -67,7 +69,7 @@ public final class Email {
                 e.printStackTrace();
                 System.out.println("message exception");
             } catch(NullPointerException npe){
-                System.out.println("Null message");
+//                System.out.println("Null message");
                 npe.printStackTrace();
             }
     }

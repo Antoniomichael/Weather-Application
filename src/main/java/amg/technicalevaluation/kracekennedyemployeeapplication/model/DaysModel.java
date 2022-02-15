@@ -1,13 +1,12 @@
 package amg.technicalevaluation.kracekennedyemployeeapplication.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class DaysModel {
-    private LocalDate day;
+    private final LocalDate day;
     private boolean isSunny;
-    private String weather;
+    private final String weather;
 
     public DaysModel(LocalDate currentDate,String weather ){
         this.day = currentDate;
@@ -25,12 +24,7 @@ public class DaysModel {
     }
 
     public boolean isSunny() {
-        if(Objects.equals(weather, "Rain"))
-        {
-            isSunny = false;
-        }else{
-            isSunny = true;
-        }
+        isSunny = !Objects.equals(weather, "Rain");
         return isSunny;
     }
 
