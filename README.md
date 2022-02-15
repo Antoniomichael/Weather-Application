@@ -1,4 +1,4 @@
-# kracekennedyemployeeapplication
+# Weather Application
 
 Specifications:
 
