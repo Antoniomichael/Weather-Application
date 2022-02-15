@@ -4,7 +4,7 @@ public enum DBLibrary {
     CONNECTIONURL{
         @Override
         public String toString() {
-            return "jdbc:sqlserver://localhost:1433;databaseName=TechnicalEvalDB;user=sa;password=Antonio_8770972;";
+            return "jdbc:sqlserver://localhost:1433;databaseName=TechnicalEvalDB;user=sa;password=;";
         }
     }
 }
