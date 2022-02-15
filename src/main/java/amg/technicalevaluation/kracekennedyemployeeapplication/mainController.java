@@ -1,10 +1,12 @@
 package amg.technicalevaluation.kracekennedyemployeeapplication;
 
 import amg.technicalevaluation.kracekennedyemployeeapplication.DAO.DBEmailAccessor;
+import amg.technicalevaluation.kracekennedyemployeeapplication.DAO.ReportNotification;
 import amg.technicalevaluation.kracekennedyemployeeapplication.model.DaysModel;
 import amg.technicalevaluation.kracekennedyemployeeapplication.model.Email;
 import amg.technicalevaluation.kracekennedyemployeeapplication.model.WeatherAPI;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconName;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -72,18 +75,21 @@ public class mainController implements Initializable {
     public mainController() throws MalformedURLException {
     }
 
-    public void changeWeatherIcon(){
-//        fo
-    fontAwesome3.setIcon(CLOUD);
-}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        updateUI();
+//
+    }
+    public void updateUI(){
         List<DaysModel> KingstonDaysInfo = null;
         List<DaysModel> MontegoBayDaysInfo = null;
-        String ITEmailsList;
-        String WorkersEmailsList;
+        String ITEmailsListKingston;
+        String ITEmailsListMobay;
+
+        String WorkersEmailsListKingston;
+        String WorkersEmailsListMobay;
+
         WeatherAPI KingstonWeather = new WeatherAPI();
         WeatherAPI MontegoBayWeather = new WeatherAPI();
 
@@ -91,22 +97,72 @@ public class mainController implements Initializable {
         try {
             KingstonDaysInfo = KingstonWeather.checkURL(KingstonURL);
             MontegoBayDaysInfo = MontegoBayWeather.checkURL(MontegoBayURL);
-            WorkersEmailsList = DBEmailAccessor.getManufacturingWorkersEmails();
-            ITEmailsList = DBEmailAccessor.getITEmails();
-            System.out.println(ITEmailsList);
-            System.out.println(WorkersEmailsList);
-            Email.EmailGeneralWorkers(WorkersEmailsList);
-            Email.EmailITWorkers(ITEmailsList);
+
+            WorkersEmailsListKingston = DBEmailAccessor.getManufacturingWorkersEmailsKingston();
+            WorkersEmailsListMobay = DBEmailAccessor.getManufacturingWorkersEmailsMobay();
+
+            ITEmailsListKingston = DBEmailAccessor.getITEmailsKingston();
+            ITEmailsListMobay = DBEmailAccessor.getITEmailsMobay();
+            System.out.println(ITEmailsListKingston);
+            System.out.println(ITEmailsListMobay);
+            System.out.println(WorkersEmailsListMobay);
+            System.out.println(WorkersEmailsListKingston);
+
+            if (!KingstonDaysInfo.get(1).isSunny()) {
+
+                if (ReportNotification.wasNotNotified(KingstonDaysInfo.get(0).getDay(), KingstonDaysInfo.get(1).getDay(),
+                        KingstonDaysInfo.get(1).getWeather(), 2)) {
+                    assert ITEmailsListKingston != null;
+                    assert WorkersEmailsListKingston != null;
+
+                    if (!ITEmailsListKingston.isEmpty() ) {
+                        Email.EmailITWorkers(ITEmailsListKingston);
+                    }
+                    if (!WorkersEmailsListKingston.isEmpty()){
+                        Email.EmailGeneralWorkers(WorkersEmailsListKingston);
+                    }
+                }
+            }
+            if (!MontegoBayDaysInfo.get(1).isSunny()){
+                if (ReportNotification.wasNotNotified(MontegoBayDaysInfo.get(0).getDay(),MontegoBayDaysInfo.get(1).getDay(),
+                        MontegoBayDaysInfo.get(1).getWeather(),1 )) {
+                    assert ITEmailsListMobay != null;
+                    if (!ITEmailsListMobay.isEmpty()) {
+                        Email.EmailITWorkers(ITEmailsListMobay);
+                    }
+                    assert WorkersEmailsListMobay != null;
+                    if (!WorkersEmailsListMobay.isEmpty()){
+                        Email.EmailGeneralWorkers(WorkersEmailsListMobay);
+                    }
+                }}
+
         } catch (IOException | ParseException | SQLException e) {
             e.printStackTrace();
+            System.out.println("mainController");
         }
+        assert KingstonDaysInfo != null;
         if (!KingstonDaysInfo.isEmpty()){
-            txtcurrentDayKingston.setText(KingstonDaysInfo.get(0).getDay().toString());
-            txtDay2Kingston.setText(KingstonDaysInfo.get(1).getDay().toString());
-            txtDay3Kingston.setText(KingstonDaysInfo.get(2).getDay().toString());
-            txtDay4Kingston.setText(KingstonDaysInfo.get(3).getDay().toString());
-            txtDay5Kingston.setText(KingstonDaysInfo.get(4).getDay().toString());
-
+            txtcurrentDayKingston.setText(KingstonDaysInfo.get(0).getDay().getDayOfWeek().toString()+", " + KingstonDaysInfo.get(0).getDay().getDayOfMonth());
+//            fontAwesomeICONCurrentDayMobay.setIcon(FontAwesomeIconName.SMILE_ALT);
+            if (!KingstonDaysInfo.get(0).isSunny()){
+                fontAwesomeICONCurrentDayKingston.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay2Kingston.setText(KingstonDaysInfo.get(1).getDay().getDayOfWeek().toString()+", " + KingstonDaysInfo.get(1).getDay().getDayOfMonth() );
+            if (!KingstonDaysInfo.get(1).isSunny()){
+                fontAwesomeICONDay2Kingston.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay3Kingston.setText(KingstonDaysInfo.get(2).getDay().getDayOfWeek().toString()+", " + KingstonDaysInfo.get(2).getDay().getDayOfMonth());
+            if (!KingstonDaysInfo.get(2).isSunny()){
+                fontAwesomeICONDay3Kingston.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay4Kingston.setText(KingstonDaysInfo.get(3).getDay().getDayOfWeek().toString()+", " + KingstonDaysInfo.get(3).getDay().getDayOfMonth());
+            if (!KingstonDaysInfo.get(3).isSunny()){
+                fontAwesomeICONDay4Kingston.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay5Kingston.setText(KingstonDaysInfo.get(4).getDay().getDayOfWeek().toString()+", " + KingstonDaysInfo.get(4).getDay().getDayOfMonth());
+            if (!KingstonDaysInfo.get(4).isSunny()){
+                fontAwesomeICONDay5Kingston.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
 
 
             txtDescriptionCurrentDayKingston.setText(KingstonDaysInfo.get(0).getWeather());
@@ -115,32 +171,40 @@ public class mainController implements Initializable {
             txtDescriptionDay4Kingston.setText(KingstonDaysInfo.get(3).getWeather());
             txtDescriptionDay5Kingston.setText(KingstonDaysInfo.get(4).getWeather());
 
-
-
-
         }
 
+        assert MontegoBayDaysInfo != null;
         if(!MontegoBayDaysInfo.isEmpty()){
-            txtCurrentDayMoBay.setText(MontegoBayDaysInfo.get(0).getDay().toString());
-            txtDay2Mobay.setText(MontegoBayDaysInfo.get(1).getDay().toString());
-            txtDay3Mobay.setText(MontegoBayDaysInfo.get(2).getDay().toString());
-            txtDay4Mobay.setText(MontegoBayDaysInfo.get(3).getDay().toString());
-            txtDay5Mobay.setText(MontegoBayDaysInfo.get(4).getDay().toString());
-
+            txtCurrentDayMoBay.setText(MontegoBayDaysInfo.get(0).getDay().getDayOfWeek().toString() +", " + MontegoBayDaysInfo.get(0).getDay().getDayOfMonth());
+            if (!MontegoBayDaysInfo.get(0).isSunny()){
+                fontAwesomeICONCurrentDayMobay.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay2Mobay.setText(MontegoBayDaysInfo.get(1).getDay().getDayOfWeek().toString()+", " + MontegoBayDaysInfo.get(1).getDay().getDayOfMonth());
+            if (!MontegoBayDaysInfo.get(1).isSunny()){
+                fontAwesomeICONDayMobay2.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay3Mobay.setText(MontegoBayDaysInfo.get(2).getDay().getDayOfWeek().toString()+", " + MontegoBayDaysInfo.get(2).getDay().getDayOfMonth());
+            if (!MontegoBayDaysInfo.get(2).isSunny()){
+                fontAwesomeICONDayMobay3.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay4Mobay.setText(MontegoBayDaysInfo.get(3).getDay().getDayOfWeek().toString()+", " + MontegoBayDaysInfo.get(3).getDay().getDayOfMonth());
+            if (!MontegoBayDaysInfo.get(3).isSunny()){
+                fontAwesomeICONDayMobay4.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
+            txtDay5Mobay.setText(MontegoBayDaysInfo.get(4).getDay().getDayOfWeek().toString()+", " + MontegoBayDaysInfo.get(4).getDay().getDayOfMonth());
+            if (!MontegoBayDaysInfo.get(4).isSunny()){
+                fontAwesomeICONDayMobay5.setIcon(FontAwesomeIconName.UMBRELLA);
+            }
 
             txtDescriptionCurrentDayMobay.setText(MontegoBayDaysInfo.get(0).getWeather());
             txtDescriptionDay2Mobay.setText(MontegoBayDaysInfo.get(1).getWeather());
             txtDescriptionDay3Mobay.setText(MontegoBayDaysInfo.get(2).getWeather());
             txtDescriptionDay4Mobay.setText(MontegoBayDaysInfo.get(3).getWeather());
             txtDescriptionDay5Mobay.setText(MontegoBayDaysInfo.get(4).getWeather());
+    }
+}}
 
-        }
 
-
-
-//
-
-//
 //        //Fonts for Mobay
 //        fontAwesomeICONCurrentDayMobay;
 //        fontAwesomeICONDayMobay2;
@@ -154,6 +218,3 @@ public class mainController implements Initializable {
 //        fontAwesomeICONDay3Kingston;
 //        fontAwesomeICONDay4Kingston;
 //        fontAwesomeICONDay5Kingston;
-
-    }
-}

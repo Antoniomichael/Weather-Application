@@ -65,6 +65,7 @@ public final class Email {
 
             } catch (MessagingException e) {
                 e.printStackTrace();
+                System.out.println("message exception");
             } catch(NullPointerException npe){
                 System.out.println("Null message");
                 npe.printStackTrace();
@@ -107,6 +108,7 @@ public final class Email {
 
         } catch (MessagingException e) {
             e.printStackTrace();
+            System.out.println("message exception");
         } catch(NullPointerException npe){
             System.out.println("Null message");
             npe.printStackTrace();
