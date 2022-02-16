@@ -15,7 +15,7 @@ public final class Email {
 
     private static final LocalDate localDate = LocalDate.now();
     private static final String USERNAME = "antonioveteran@hotmail.com";
-    private static final String PASSWORD = "Veronica";
+    private static final String PASSWORD = ""; //Password removed
     private static final String SMTP_SERVER = "smtp-mail.outlook.com";
     private static final String EMAIL_FROM = "antonioveteran@hotmail.com";
     private static final String EMAIL_TO_CC = "";
