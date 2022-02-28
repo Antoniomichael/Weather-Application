@@ -29,11 +29,7 @@ public final class Email {
             "Please note that for tomorrow's shift " + localDate.plusDays(1) + ",  you are not required to work the full 8 hour shift, " +
             "but instead you will be required to only work a 4 hour shift. \n Respectfully, \n\n Management";
 
-    public Email() {
-//
-
-
-    }
+    public Email() { }
 
     public static void EmailGeneralWorkers(String EMAIL_TO){
 
