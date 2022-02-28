@@ -92,8 +92,6 @@ public class mainController implements Initializable {
 
 
     public void updateUI() {
-
-
         KingstonDaysInfo = new ArrayList<>();
         MontegoBayDaysInfo = new ArrayList<>();
         String ITEmailsListKingston;
@@ -116,16 +114,9 @@ public class mainController implements Initializable {
             ITEmailsListKingston = DBEmailAccessor.getITEmailsKingston();
             ITEmailsListMobay = DBEmailAccessor.getITEmailsMobay();
             assert ITEmailsListKingston != null;
-//            System.out.println(ITEmailsListKingston);
             assert ITEmailsListMobay != null;
-
-//                System.out.println(ITEmailsListMobay);
             assert WorkersEmailsListMobay != null;
-
-//                System.out.println(WorkersEmailsListMobay);
             assert WorkersEmailsListKingston != null;
-
-//                System.out.println(WorkersEmailsListKingston);
 
             if (!KingstonDaysInfo.get(1).isSunny()) {
 
@@ -225,18 +216,3 @@ public class mainController implements Initializable {
         }
     }
 }
-
-
-//        //Fonts for Mobay
-//        fontAwesomeICONCurrentDayMobay;
-//        fontAwesomeICONDayMobay2;
-//        fontAwesomeICONDayMobay3;
-//        fontAwesomeICONDayMobay4;
-//        fontAwesomeICONDayMobay5;
-//
-//        //Fonts for Kingston
-//        fontAwesomeICONCurrentDayKingston;
-//        fontAwesomeICONDay2Kingston;
-//        fontAwesomeICONDay3Kingston;
-//        fontAwesomeICONDay4Kingston;
-//        fontAwesomeICONDay5Kingston;
