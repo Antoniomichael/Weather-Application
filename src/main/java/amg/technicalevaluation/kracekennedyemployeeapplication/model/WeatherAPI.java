@@ -17,8 +17,6 @@ public final class WeatherAPI {
     List<DaysModel> daysInfo = new ArrayList<>();
     public List<DaysModel> checkURL(URL url) throws IOException, ParseException {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-
-        //this call to set request lets the connection know that this is a get method and so will receive data and not post
         connection.setRequestMethod("GET");
         connection.connect();
 
@@ -27,7 +25,6 @@ public final class WeatherAPI {
         checkResponsecode(responseCode);
 
         return getJSONObject(setWeatherInfo(url));
-
     }
 
 
@@ -96,9 +93,6 @@ public final class WeatherAPI {
 
                     tempIterator = tempIterator+1;
                 }
-
-//                System.out.println(daysInfo);
-
             } else {
 //                System.out.println("None Existent");
             }
