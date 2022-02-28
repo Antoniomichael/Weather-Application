@@ -30,24 +30,20 @@ public final class DBEmailAccessor {
                 statement = Objects.requireNonNull(newcon.createStatement());
 
                 resultSet = statement.executeQuery(selectWorkersEmailsKingston);
-//
                 if (resultSet.next()) {
                     do {
-//                        System.out.println(resultSet.getString("email"));
                         ManufacturingWorkersEmailsKingston = ManufacturingWorkersEmailsKingston.concat(resultSet.getString("email") + ",");
                     } while (resultSet.next());
 
                 }
                 System.out.println(ManufacturingWorkersEmailsKingston);
-//
+
                 newcon.close();
                 if (!ManufacturingWorkersEmailsKingston.isEmpty()) {
                     StringBuilder sb = new StringBuilder(ManufacturingWorkersEmailsKingston);
-
                     return String.valueOf(sb.deleteCharAt(sb.length() - 1));
                 } else {
                     return null;
-
                 }
 
             }catch(NullPointerException nullPointerException){
@@ -68,8 +64,7 @@ public final class DBEmailAccessor {
 //
             if (resultSet.next()) {
                 do {
-//                        System.out.println(resultSet.getString("email"));
-                    ManufacturingWorkersEmailsMobay = ManufacturingWorkersEmailsMobay.concat(resultSet.getString("email") + ",");
+                   ManufacturingWorkersEmailsMobay = ManufacturingWorkersEmailsMobay.concat(resultSet.getString("email") + ",");
                 } while (resultSet.next());
 
             }
@@ -150,9 +145,7 @@ public final class DBEmailAccessor {
             } else {
                 return null;
             }
-
         }catch(NullPointerException nullPointerException){
-//            System.out.println("Null return");
             return  null;
         }
 
